@@ -56,36 +56,36 @@ path = "C:\\Program Files\\PureRef\\PureRef.exe"
 [node name="Baba Is You" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
 offset_left = 40.0
-offset_top = 13.0003
+offset_top = 16.0003
 offset_right = 31.936
-offset_bottom = 7.33321
+offset_bottom = 6.424
 label_text = "Baba Is You"
 path = "D:\\Spel\\Baba Is You\\Baba Is You.exe"
 
 [node name="Celeste" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
 offset_left = 40.0
-offset_top = 85.0003
+offset_top = 88.0003
 offset_right = 31.936
-offset_bottom = 79.3332
+offset_bottom = 78.424
 label_text = "Celeste"
 path = "D:\\Spel\\Celeste\\Celeste.exe"
 
 [node name="InMost" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
 offset_left = 40.0
-offset_top = 157.0
+offset_top = 160.0
 offset_right = 31.936
-offset_bottom = 151.333
+offset_bottom = 150.424
 label_text = "InMost"
 path = "D:\\Spel\\INMOST\\INMOST.exe"
 
 [node name="Backbone" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
 offset_left = 40.0
-offset_top = 229.0
+offset_top = 232.0
 offset_right = 31.936
-offset_bottom = 223.333
+offset_bottom = 222.424
 label_text = "Backbone"
 path = "D:\\Spel\\Backbone\\Detective.exe"
 
@@ -94,15 +94,33 @@ layout_mode = 1
 offset_left = 264.0
 offset_top = -55.9997
 offset_right = 255.936
-offset_bottom = -61.6667
+offset_bottom = -65.576
 label_text = "Audacity"
 path = "C:\\Program Files\\Muse\\Audacity\\Audacity.exe"
 
-[node name="SteamGame" parent="." instance=ExtResource("1_2ls1q")]
+[node name="Aseprite" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
 offset_left = 264.0
 offset_top = 16.0003
 offset_right = 255.936
-offset_bottom = 10.3333
-label_text = "SteamGame"
+offset_bottom = 6.424
+label_text = "Aseprite"
 path = "steam://rungameid/431730"
+
+[node name="Bild" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 264.0
+offset_top = 88.0003
+offset_right = 255.936
+offset_bottom = 78.424
+label_text = "Bild"
+path = "D:\\Bilder\\Bäst_i_test_medalj.png"
+
+[node name="Video" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 264.0
+offset_top = 160.0
+offset_right = 255.936
+offset_bottom = 150.424
+label_text = "Video"
+path = "D:\\Bilder\\Magisterpromotion_15_november_2024_kl.mp4"

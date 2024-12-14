@@ -48,11 +48,11 @@ offset_right = 8.0
 offset_bottom = -1.76
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = ExtResource("2_30306")
+theme_override_styles/focus = ExtResource("2_30306")
+theme_override_styles/disabled = ExtResource("2_30306")
 theme_override_styles/hover = ExtResource("2_30306")
 theme_override_styles/pressed = ExtResource("2_30306")
-theme_override_styles/disabled = ExtResource("2_30306")
-theme_override_styles/focus = ExtResource("2_30306")
+theme_override_styles/normal = ExtResource("2_30306")
 metadata/_edit_lock_ = true
 
 [node name="Color" type="TextureRect" parent="Button"]
