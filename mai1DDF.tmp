@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2f0ki2ux62an"]
+
+[ext_resource type="PackedScene" uid="uid://d14ve4kflwb2e" path="res://button_shiny_animate/button_shiny_animate.tscn" id="1_2ls1q"]
+[ext_resource type="Script" path="res://LastApp.gd" id="2_hwrsr"]
+
+[sub_resource type="Gradient" id="Gradient_wgvsm"]
+colors = PackedColorArray(0.360784, 0.0862745, 0.458824, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_grpts"]
+gradient = SubResource("Gradient_wgvsm")
+fill_from = Vector2(0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_grpts")
+
+[node name="PureRef" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = -52.9997
+offset_right = 31.936
+offset_bottom = -62.576
+label_text = "PureRef"
+path = "C:\\Program Files\\PureRef\\PureRef.exe"
+
+[node name="Baba Is You" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 16.0003
+offset_right = 31.936
+offset_bottom = 10.3332
+label_text = "Baba Is You"
+path = "D:\\Spel\\Baba Is You\\Baba Is You.exe"
+
+[node name="Celeste" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 88.0003
+offset_right = 31.936
+offset_bottom = 82.3332
+label_text = "Celeste"
+path = "D:\\Spel\\Celeste\\Celeste.exe"
+
+[node name="InMost" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 160.0
+offset_right = 31.936
+offset_bottom = 154.333
+label_text = "InMost"
+path = "D:\\Spel\\INMOST\\INMOST.exe"
+
+[node name="Backbone" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 232.0
+offset_right = 31.936
+offset_bottom = 226.333
+label_text = "Backbone"
+path = "D:\\Spel\\Backbone\\Detective.exe"
+
+[node name="LastApp" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -72.0
+offset_right = 256.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_hwrsr")
