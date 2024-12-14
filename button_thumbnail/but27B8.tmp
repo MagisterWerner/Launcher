@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://yovnfp3aufcw"]
+
+[ext_resource type="Script" path="res://button_thumbnail/button_thumbnail.gd" id="1_2kn4j"]
+[ext_resource type="StyleBox" uid="uid://d4npjgmnp2yce" path="res://button_shiny_animate/button_shiny_style.tres" id="2_ieo7o"]
+[ext_resource type="Texture2D" uid="uid://d5mn6166iv6g" path="res://thumbnails/default_thumb.png" id="3_yx6y7"]
+[ext_resource type="Script" path="res://button_thumbnail/label.gd" id="4_4qxr4"]
+
+[sub_resource type="Gradient" id="Gradient_ww33p"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.666667, 1, 1, 1, 0.666667, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r30d4"]
+gradient = SubResource("Gradient_ww33p")
+fill_from = Vector2(0, 0.458716)
+fill_to = Vector2(1, 0.434783)
+
+[node name="ButtonControl" type="Control"]
+layout_mode = 3
+anchor_left = 0.111
+anchor_top = 0.099
+anchor_right = 0.278
+anchor_bottom = 0.395
+offset_left = 0.127991
+offset_top = -0.152008
+offset_right = -8.25604
+offset_bottom = 0.0399933
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(160, 32)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_2kn4j")
+label_text = "Label"
+texture_path = "res://thumbnails/default_thumb.png"
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8.0
+offset_bottom = -1.76
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = ExtResource("2_ieo7o")
+theme_override_styles/disabled = ExtResource("2_ieo7o")
+theme_override_styles/hover = ExtResource("2_ieo7o")
+theme_override_styles/pressed = ExtResource("2_ieo7o")
+theme_override_styles/normal = ExtResource("2_ieo7o")
+metadata/_edit_lock_ = true
+
+[node name="Texture" type="TextureRect" parent="Button"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_yx6y7")
+expand_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Shine" type="TextureRect" parent="Button"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.6)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.208
+offset_top = -48.0
+offset_right = -176.208
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.436332
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_r30d4")
+metadata/_edit_lock_ = true
+
+[node name="ButtonSide" type="Panel" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 6.24
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_ieo7o")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.00001
+offset_top = 200.0
+offset_right = 184.0
+offset_bottom = 223.0
+text = "Label"
+horizontal_alignment = 1
+script = ExtResource("4_4qxr4")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

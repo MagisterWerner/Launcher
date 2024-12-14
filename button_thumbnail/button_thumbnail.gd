@@ -4,6 +4,8 @@ extends Control
 @export var button_width: int = 200
 @export var label_text: String
 @export var path: String
+@export var texture_path: String
+
 
 var tween: Tween
 var start_time: float
@@ -18,6 +20,7 @@ var steam = false
 
 @onready var button: Button = %Button
 @onready var button_side: Panel = %ButtonSide
+@onready var texture: TextureRect = %Texture
 @onready var shine: TextureRect = %Shine
 @onready var label = %Label
 
@@ -25,9 +28,9 @@ var steam = false
 func _ready() -> void:
 	set_deferred("button.size.x", button_width)
 	set_deferred("button_side.size.x", button_width)
+	texture.texture = load(texture_path)
 	label.text = name
-	
-	shine.position.x = button.size.x + shine.size.x
+	shine.position.x = button.size.x + shine.size.x + 40
 
 func show_colors() -> void:
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -37,7 +40,7 @@ func show_colors() -> void:
 
 func hide_colors() -> void:
 	tween.kill()
-	shine.position.x = button.size.x + shine.size.x
+	shine.position.x = button.size.x + shine.size.x + 40
 
 func _on_button_mouse_entered() -> void:
 	show_colors()

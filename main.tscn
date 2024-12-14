@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2f0ki2ux62an"]
+[gd_scene load_steps=6 format=3 uid="uid://d2f0ki2ux62an"]
 
 [ext_resource type="PackedScene" uid="uid://d14ve4kflwb2e" path="res://button_shiny_animate/button_shiny_animate.tscn" id="1_2ls1q"]
 [ext_resource type="Script" path="res://LastApp.gd" id="2_hwrsr"]
+[ext_resource type="PackedScene" uid="uid://yovnfp3aufcw" path="res://button_thumbnail/button_thumbnail.tscn" id="3_ue1ts"]
 
 [sub_resource type="Gradient" id="Gradient_wgvsm"]
 colors = PackedColorArray(0.360784, 0.0862745, 0.458824, 1, 0, 0, 0, 1)
@@ -107,7 +108,7 @@ offset_bottom = 6.424
 label_text = "Aseprite"
 path = "steam://rungameid/431730"
 
-[node name="Bild" parent="." instance=ExtResource("1_2ls1q")]
+[node name="Bilder" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
 offset_left = 264.0
 offset_top = 88.0003
@@ -124,3 +125,21 @@ offset_right = 255.936
 offset_bottom = 150.424
 label_text = "Video"
 path = "D:\\Bilder\\Magisterpromotion_15_november_2024_kl.mp4"
+
+[node name="Brotato" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 704.128
+offset_right = 695.744
+label_text = "Brotato"
+path = "C:\\Spel\\Brotato\\Brotato.exe"
+texture_path = "res://thumbnails/brotato_thumb.png"
+
+[node name="Enter the Gungeon" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 704.128
+offset_top = 255.848
+offset_right = 695.744
+offset_bottom = 256.04
+label_text = "Enter the Gungeon"
+path = "steam://rungameid/311690"
+texture_path = "res://thumbnails/gungeon_thumb.png"
