@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2f0ki2ux62an"]
 
 [ext_resource type="PackedScene" uid="uid://d14ve4kflwb2e" path="res://button_shiny_animate/button_shiny_animate.tscn" id="1_2ls1q"]
-[ext_resource type="Script" path="res://LastApp.gd" id="2_hwrsr"]
+[ext_resource type="Script" path="res://quit.gd" id="2_v5q6u"]
 [ext_resource type="PackedScene" uid="uid://yovnfp3aufcw" path="res://button_thumbnail/button_thumbnail.tscn" id="3_ue1ts"]
 
 [sub_resource type="Gradient" id="Gradient_wgvsm"]
@@ -30,112 +30,156 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_grpts")
 metadata/_edit_lock_ = true
 
-[node name="LastApp" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -256.0
-offset_top = -72.0
-offset_right = 256.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("2_hwrsr")
-
-[node name="PureRef" parent="." instance=ExtResource("1_2ls1q")]
-layout_mode = 1
-offset_left = -24.0
-offset_top = -23.9997
-offset_right = -32.064
-offset_bottom = -33.576
-path = "C:\\Program Files\\PureRef\\PureRef.exe"
-
 [node name="Baba Is You" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = -24.0
-offset_top = 48.0003
-offset_right = -32.064
-offset_bottom = 38.424
+offset_left = -64.0
+offset_top = 8.00031
+offset_right = -72.064
+offset_bottom = -1.576
 path = "D:\\Spel\\Baba Is You\\Baba Is You.exe"
-
-[node name="Celeste" parent="." instance=ExtResource("1_2ls1q")]
-layout_mode = 1
-offset_left = -24.0
-offset_top = 120.0
-offset_right = -32.064
-offset_bottom = 110.424
-path = "D:\\Spel\\Celeste\\Celeste.exe"
-
-[node name="InMost" parent="." instance=ExtResource("1_2ls1q")]
-layout_mode = 1
-offset_left = -24.0
-offset_top = 192.0
-offset_right = -32.064
-offset_bottom = 182.424
-path = "D:\\Spel\\INMOST\\INMOST.exe"
-
-[node name="Backbone" parent="." instance=ExtResource("1_2ls1q")]
-layout_mode = 1
-offset_left = -24.0
-offset_top = 264.0
-offset_right = -32.064
-offset_bottom = 254.424
-path = "D:\\Spel\\Backbone\\Detective.exe"
-
-[node name="Audacity" parent="." instance=ExtResource("1_2ls1q")]
-layout_mode = 1
-offset_left = 200.0
-offset_top = -23.9997
-offset_right = 191.936
-offset_bottom = -33.576
-path = "C:\\Program Files\\Muse\\Audacity\\Audacity.exe"
 
 [node name="Aseprite" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 200.0
-offset_top = 48.0003
-offset_right = 191.936
-offset_bottom = 38.424
+offset_left = -64.0
+offset_top = -63.9997
+offset_right = -72.064
+offset_bottom = -73.576
 path = "steam://rungameid/431730"
 
 [node name="Bild" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 200.0
-offset_top = 120.0
-offset_right = 191.936
-offset_bottom = 110.424
+offset_left = -64.0
+offset_top = 80.0003
+offset_right = -72.064
+offset_bottom = 70.4243
 path = "D:\\Bilder\\Bäst_i_test_medalj.png"
 
 [node name="Video" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 200.0
-offset_top = 192.0
-offset_right = 191.936
-offset_bottom = 182.424
+offset_left = -64.0
+offset_top = 152.0
+offset_right = -72.064
+offset_bottom = 142.424
 path = "D:\\Bilder\\Magisterpromotion_15_november_2024_kl.mp4"
+
+[node name="Baba Is You2" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = -64.0
+offset_top = 296.0
+offset_right = -72.064
+offset_bottom = 286.424
+path = "D:\\Spel\\Baba Is You\\Baba Is You.exe"
+
+[node name="Aseprite2" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = -64.0
+offset_top = 224.0
+offset_right = -72.064
+offset_bottom = 214.424
+path = "steam://rungameid/431730"
+
+[node name="Bild2" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = -64.0
+offset_top = 368.0
+offset_right = -72.064
+offset_bottom = 358.424
+path = "D:\\Bilder\\Bäst_i_test_medalj.png"
+
+[node name="Video2" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = -64.0
+offset_top = 440.0
+offset_right = -72.064
+offset_bottom = 430.424
+path = "D:\\Bilder\\Magisterpromotion_15_november_2024_kl.mp4"
+
+[node name="X" parent="." instance=ExtResource("1_2ls1q")]
+layout_mode = 1
+offset_left = 1024.0
+offset_top = -79.9997
+offset_right = 839.936
+offset_bottom = -113.576
+script = ExtResource("2_v5q6u")
 
 [node name="Brotato" parent="." instance=ExtResource("3_ue1ts")]
 layout_mode = 1
-offset_left = 776.128
-offset_right = 767.744
+offset_left = 368.128
+offset_top = 79.848
+offset_right = 359.744
+offset_bottom = 80.04
 path = "C:\\Spel\\Brotato\\Brotato.exe"
 texture_path = "res://thumbnails/brotato_thumb.png"
 
 [node name="Enter the Gungeon" parent="." instance=ExtResource("3_ue1ts")]
 layout_mode = 1
-offset_left = 776.128
-offset_top = 239.848
-offset_right = 767.744
-offset_bottom = 240.04
+offset_left = 584.128
+offset_top = 79.848
+offset_right = 575.744
+offset_bottom = 80.04
 path = "steam://rungameid/311690"
 texture_path = "res://thumbnails/gungeon_thumb.png"
 
 [node name="Terraforming Mars" parent="." instance=ExtResource("3_ue1ts")]
 layout_mode = 1
-offset_left = 544.128
-offset_right = 535.744
+offset_left = 152.128
+offset_top = 79.848
+offset_right = 143.744
+offset_bottom = 80.04
 path = "C:\\Spel\\TerraformingMars\\TerraformingMars.exe"
 texture_path = "res://thumbnails/terraformingmars_thumb.png"
+
+[node name="Terraforming Mars2" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 800.128
+offset_top = 79.848
+offset_right = 791.744
+offset_bottom = 80.04
+path = "C:\\Spel\\TerraformingMars\\TerraformingMars.exe"
+texture_path = "res://thumbnails/terraformingmars_thumb.png"
+
+[node name="Brotato2" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 368.128
+offset_top = 327.848
+offset_right = 359.744
+offset_bottom = 328.04
+path = "C:\\Spel\\Brotato\\Brotato.exe"
+texture_path = "res://thumbnails/brotato_thumb.png"
+
+[node name="Enter the Gungeon2" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 584.128
+offset_top = 327.848
+offset_right = 575.744
+offset_bottom = 328.04
+path = "steam://rungameid/311690"
+texture_path = "res://thumbnails/gungeon_thumb.png"
+
+[node name="Terraforming Mars3" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 152.128
+offset_top = 327.848
+offset_right = 143.744
+offset_bottom = 328.04
+path = "C:\\Spel\\TerraformingMars\\TerraformingMars.exe"
+texture_path = "res://thumbnails/terraformingmars_thumb.png"
+
+[node name="Terraforming Mars4" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 800.128
+offset_top = 327.848
+offset_right = 791.744
+offset_bottom = 328.04
+path = "C:\\Spel\\TerraformingMars\\TerraformingMars.exe"
+texture_path = "res://thumbnails/terraformingmars_thumb.png"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 24.0
+offset_right = 1088.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 48
+text = "This is an app launcher"
+horizontal_alignment = 1

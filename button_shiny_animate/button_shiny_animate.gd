@@ -4,14 +4,9 @@ extends Control
 @export var path: String
 
 var tween: Tween
-var start_time: float
-var elapsed_seconds: float
-var elapsed_minutes: float
-var elapsed_hours: float
 var output: Array
 var pid: int = -1
 var message: String
-#var path_root: String
 var steam = false
 var label_text: String
 var button_width: int = 200
@@ -23,6 +18,9 @@ var button_width: int = 200
 
 
 func _ready() -> void:
+	# Set the window mode to fullscreen
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	
 	set_deferred("button.size.x", button_width)
 	set_deferred("button_side.size.x", button_width)
 	label.text = name
@@ -51,9 +49,6 @@ func _on_button_button_down():
 	# Wait one second to properly display button pressed
 	await get_tree().create_timer(1).timeout
 	
-	# Start the timer
-	start_time = Time.get_unix_time_from_system()
-	
 	var path_root = path.get_slice(":", 0) + ":"
 	var path_dir = path.get_base_dir()
 	var path_file = path.get_file()
@@ -67,32 +62,18 @@ func _on_button_button_down():
 		#Execute the external executable file
 		steam = false
 		pid = OS.execute('cmd', ['/C', path_cmd], output, true)
-		await get_tree().create_timer(1.0).timeout
-		# F11 press for Fullscreen
-		OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('{F11}')"])
-		# Small delay to ensure F11 is processed
-		await get_tree().create_timer(0.1).timeout
-		
-	# Calculate the elapsed time in milliseconds
-	elapsed_seconds = Time.get_unix_time_from_system() - start_time
-	elapsed_minutes = elapsed_seconds / 60
-	elapsed_hours = elapsed_minutes / 60
-	if elapsed_seconds > 1:
-		message = "Du använde " + str(label_text) + " i " + str(round(elapsed_hours)) + " timmar, " + str(round(elapsed_minutes)) + " minuter och " + str(round(elapsed_seconds)) + " sekunder!"
-		GlobalSignalHandler.appClosed.emit(message)
-	
+		if path_file.ends_with(".mp4"):
+			print("The filename ends with .mp4")
+			await get_tree().create_timer(1.0).timeout
+			# F11 press for Fullscreen
+			OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('{F11}')"])
+			# Small delay to ensure F11 is processed
+			await get_tree().create_timer(1.0).timeout
+			OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('^h')"])
+			# Small delay to ensure F11 is processed
+			await get_tree().create_timer(0.1).timeout
 	if pid != -1:
 		OS.kill(pid)
 
 func _on_button_button_up():
 	button.position.y -= 4
-
-func _notification(what):
-	if steam:
-		match what:
-			MainLoop.NOTIFICATION_APPLICATION_FOCUS_IN:
-				elapsed_seconds = Time.get_unix_time_from_system() - start_time
-				elapsed_minutes = elapsed_seconds / 60
-				elapsed_hours = elapsed_minutes / 60
-				message = "Du använde " + str(label_text) + " i " + str(round(elapsed_hours)) + " timmar, " + str(round(elapsed_minutes)) + " minuter och " + str(round(elapsed_seconds)) + " sekunder!"
-				GlobalSignalHandler.focusIn.emit(message)
