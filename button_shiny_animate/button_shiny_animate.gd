@@ -1,8 +1,6 @@
 @tool
 extends Control
 
-@export var button_width: int = 200
-@export var label_text: String
 @export var path: String
 
 var tween: Tween
@@ -15,6 +13,8 @@ var pid: int = -1
 var message: String
 #var path_root: String
 var steam = false
+var label_text: String
+var button_width: int = 200
 
 @onready var button: Button = %Button
 @onready var button_side: Panel = %ButtonSide
@@ -67,7 +67,12 @@ func _on_button_button_down():
 		#Execute the external executable file
 		steam = false
 		pid = OS.execute('cmd', ['/C', path_cmd], output, true)
-	
+		await get_tree().create_timer(1.0).timeout
+		# F11 press for Fullscreen
+		OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('{F11}')"])
+		# Small delay to ensure F11 is processed
+		await get_tree().create_timer(0.1).timeout
+		
 	# Calculate the elapsed time in milliseconds
 	elapsed_seconds = Time.get_unix_time_from_system() - start_time
 	elapsed_minutes = elapsed_seconds / 60

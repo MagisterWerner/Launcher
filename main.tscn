@@ -47,99 +47,95 @@ script = ExtResource("2_hwrsr")
 
 [node name="PureRef" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 40.0
-offset_top = -55.9997
-offset_right = 31.936
-offset_bottom = -65.576
-label_text = "PureRef"
+offset_left = -24.0
+offset_top = -23.9997
+offset_right = -32.064
+offset_bottom = -33.576
 path = "C:\\Program Files\\PureRef\\PureRef.exe"
 
 [node name="Baba Is You" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 40.0
-offset_top = 16.0003
-offset_right = 31.936
-offset_bottom = 6.424
-label_text = "Baba Is You"
+offset_left = -24.0
+offset_top = 48.0003
+offset_right = -32.064
+offset_bottom = 38.424
 path = "D:\\Spel\\Baba Is You\\Baba Is You.exe"
 
 [node name="Celeste" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 40.0
-offset_top = 88.0003
-offset_right = 31.936
-offset_bottom = 78.424
-label_text = "Celeste"
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -32.064
+offset_bottom = 110.424
 path = "D:\\Spel\\Celeste\\Celeste.exe"
 
 [node name="InMost" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 40.0
-offset_top = 160.0
-offset_right = 31.936
-offset_bottom = 150.424
-label_text = "InMost"
+offset_left = -24.0
+offset_top = 192.0
+offset_right = -32.064
+offset_bottom = 182.424
 path = "D:\\Spel\\INMOST\\INMOST.exe"
 
 [node name="Backbone" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 40.0
-offset_top = 232.0
-offset_right = 31.936
-offset_bottom = 222.424
-label_text = "Backbone"
+offset_left = -24.0
+offset_top = 264.0
+offset_right = -32.064
+offset_bottom = 254.424
 path = "D:\\Spel\\Backbone\\Detective.exe"
 
 [node name="Audacity" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 264.0
-offset_top = -55.9997
-offset_right = 255.936
-offset_bottom = -65.576
-label_text = "Audacity"
+offset_left = 200.0
+offset_top = -23.9997
+offset_right = 191.936
+offset_bottom = -33.576
 path = "C:\\Program Files\\Muse\\Audacity\\Audacity.exe"
 
 [node name="Aseprite" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 264.0
-offset_top = 16.0003
-offset_right = 255.936
-offset_bottom = 6.424
-label_text = "Aseprite"
+offset_left = 200.0
+offset_top = 48.0003
+offset_right = 191.936
+offset_bottom = 38.424
 path = "steam://rungameid/431730"
 
-[node name="Bilder" parent="." instance=ExtResource("1_2ls1q")]
+[node name="Bild" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 264.0
-offset_top = 88.0003
-offset_right = 255.936
-offset_bottom = 78.424
-label_text = "Bild"
+offset_left = 200.0
+offset_top = 120.0
+offset_right = 191.936
+offset_bottom = 110.424
 path = "D:\\Bilder\\Bäst_i_test_medalj.png"
 
 [node name="Video" parent="." instance=ExtResource("1_2ls1q")]
 layout_mode = 1
-offset_left = 264.0
-offset_top = 160.0
-offset_right = 255.936
-offset_bottom = 150.424
-label_text = "Video"
+offset_left = 200.0
+offset_top = 192.0
+offset_right = 191.936
+offset_bottom = 182.424
 path = "D:\\Bilder\\Magisterpromotion_15_november_2024_kl.mp4"
 
 [node name="Brotato" parent="." instance=ExtResource("3_ue1ts")]
 layout_mode = 1
-offset_left = 704.128
-offset_right = 695.744
-label_text = "Brotato"
+offset_left = 776.128
+offset_right = 767.744
 path = "C:\\Spel\\Brotato\\Brotato.exe"
 texture_path = "res://thumbnails/brotato_thumb.png"
 
 [node name="Enter the Gungeon" parent="." instance=ExtResource("3_ue1ts")]
 layout_mode = 1
-offset_left = 704.128
-offset_top = 255.848
-offset_right = 695.744
-offset_bottom = 256.04
-label_text = "Enter the Gungeon"
+offset_left = 776.128
+offset_top = 239.848
+offset_right = 767.744
+offset_bottom = 240.04
 path = "steam://rungameid/311690"
 texture_path = "res://thumbnails/gungeon_thumb.png"
+
+[node name="Terraforming Mars" parent="." instance=ExtResource("3_ue1ts")]
+layout_mode = 1
+offset_left = 544.128
+offset_right = 535.744
+path = "C:\\Spel\\TerraformingMars\\TerraformingMars.exe"
+texture_path = "res://thumbnails/terraformingmars_thumb.png"

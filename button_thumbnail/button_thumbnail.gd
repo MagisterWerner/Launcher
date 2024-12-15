@@ -1,8 +1,6 @@
 @tool
 extends Control
 
-@export var button_width: int = 200
-@export var label_text: String
 @export var path: String
 @export var texture_path: String
 
@@ -17,6 +15,8 @@ var pid: int = -1
 var message: String
 #var path_root: String
 var steam = false
+var label_text: String
+var button_width: int = 200
 
 @onready var button: Button = %Button
 @onready var button_side: Panel = %ButtonSide
