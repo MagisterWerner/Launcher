@@ -4,12 +4,7 @@ extends Control
 @export var path: String
 @export var texture_path: String
 
-
 var tween: Tween
-var start_time: float
-var elapsed_seconds: float
-var elapsed_minutes: float
-var elapsed_hours: float
 var output: Array
 var pid: int = -1
 var message: String
@@ -54,9 +49,6 @@ func _on_button_button_down():
 	# Wait one second to properly display button pressed
 	await get_tree().create_timer(1).timeout
 	
-	# Start the timer
-	start_time = Time.get_unix_time_from_system()
-	
 	var path_root = path.get_slice(":", 0) + ":"
 	var path_dir = path.get_base_dir()
 	var path_file = path.get_file()
@@ -71,26 +63,8 @@ func _on_button_button_down():
 		steam = false
 		pid = OS.execute('cmd', ['/C', path_cmd], output, true)
 	
-	# Calculate the elapsed time in milliseconds
-	elapsed_seconds = Time.get_unix_time_from_system() - start_time
-	elapsed_minutes = elapsed_seconds / 60
-	elapsed_hours = elapsed_minutes / 60
-	if elapsed_seconds > 1:
-		message = "Du använde " + str(label_text) + " i " + str(round(elapsed_hours)) + " timmar, " + str(round(elapsed_minutes)) + " minuter och " + str(round(elapsed_seconds)) + " sekunder!"
-		GlobalSignalHandler.appClosed.emit(message)
-	
 	if pid != -1:
 		OS.kill(pid)
 
 func _on_button_button_up():
 	button.position.y -= 4
-
-func _notification(what):
-	if steam:
-		match what:
-			MainLoop.NOTIFICATION_APPLICATION_FOCUS_IN:
-				elapsed_seconds = Time.get_unix_time_from_system() - start_time
-				elapsed_minutes = elapsed_seconds / 60
-				elapsed_hours = elapsed_minutes / 60
-				message = "Du använde " + str(label_text) + " i " + str(round(elapsed_hours)) + " timmar, " + str(round(elapsed_minutes)) + " minuter och " + str(round(elapsed_seconds)) + " sekunder!"
-				GlobalSignalHandler.focusIn.emit(message)
