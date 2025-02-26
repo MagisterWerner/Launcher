@@ -1,25 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://d14ve4kflwb2e"]
+[gd_scene load_steps=5 format=3 uid="uid://d14ve4kflwb2e"]
 
 [ext_resource type="Script" path="res://button_shiny_animate/button_shiny_animate.gd" id="1_7886q"]
 [ext_resource type="StyleBox" uid="uid://d4npjgmnp2yce" path="res://button_shiny_animate/button_shiny_style.tres" id="2_30306"]
 
 [sub_resource type="Gradient" id="Gradient_lxp4n"]
 offsets = PackedFloat32Array(0.00649351, 1)
-colors = PackedColorArray(0.611765, 1, 0.611765, 1, 0.357983, 0.690817, 0.358846, 1)
+colors = PackedColorArray(0.3, 0.3, 0.3, 1, 0.6, 0.6, 0.6, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xps3n"]
 gradient = SubResource("Gradient_lxp4n")
 fill_from = Vector2(1, 1)
 fill_to = Vector2(0.866973, 0)
-
-[sub_resource type="Gradient" id="Gradient_ww33p"]
-offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.666667, 1, 1, 1, 0.666667, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_r30d4"]
-gradient = SubResource("Gradient_ww33p")
-fill_from = Vector2(0, 0.458716)
-fill_to = Vector2(1, 0.434783)
 
 [node name="ButtonControl" type="Control"]
 layout_mode = 3
@@ -40,6 +31,7 @@ script = ExtResource("1_7886q")
 
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
+modulate = Color(0.576333, 1, 0.18, 1)
 clip_children = 1
 layout_mode = 2
 anchor_right = 1.0
@@ -64,24 +56,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_xps3n")
-metadata/_edit_lock_ = true
-
-[node name="Shine" type="TextureRect" parent="Button"]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.6)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 272.0
-offset_top = -48.0
-offset_right = 128.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.436332
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_r30d4")
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Button"]

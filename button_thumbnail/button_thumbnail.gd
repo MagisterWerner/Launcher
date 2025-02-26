@@ -34,6 +34,7 @@ func show_colors() -> void:
 	tween.kill()
 
 func hide_colors() -> void:
+	await tween.finished
 	tween.kill()
 	shine.position.x = button.size.x + shine.size.x + 40
 
@@ -58,10 +59,22 @@ func _on_button_button_down():
 		#Apps for steam etc. can use this, but timers won't work as good:
 		steam = true
 		pid = OS.execute('C:\\Program Files (x86)\\Steam\\Steam.exe', [path], output, true)
+		await get_tree().create_timer(0.5).timeout  # Give it a moment to launch
+		OS.execute("powershell", ["-command", "(New-Object -ComObject WScript.Shell).AppActivate(" + str(pid) + ")"])
 	else:
 		#Execute the external executable file
 		steam = false
 		pid = OS.execute('cmd', ['/C', path_cmd], output, true)
+		if path_file.ends_with(".mp4"):
+			print("The filename ends with .mp4")
+			await get_tree().create_timer(1.0).timeout
+			# F11 press for Fullscreen
+			OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('{F11}')"])
+			# Small delay to ensure F11 is processed
+			await get_tree().create_timer(1.0).timeout
+			OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('h')"])
+			# Small delay to ensure F11 is processed
+			await get_tree().create_timer(0.1).timeout
 	
 	if pid != -1:
 		OS.kill(pid)

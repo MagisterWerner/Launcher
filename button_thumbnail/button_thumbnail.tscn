@@ -29,7 +29,6 @@ pivot_offset = Vector2(160, 32)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_2kn4j")
-label_text = "Label"
 texture_path = "res://thumbnails/default_thumb.png"
 
 [node name="Button" type="Button" parent="."]
@@ -102,7 +101,7 @@ offset_left = 8.00001
 offset_top = 200.0
 offset_right = 184.0
 offset_bottom = 223.0
-text = "Label"
+text = "ButtonControl"
 horizontal_alignment = 1
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -6,28 +6,16 @@ var label_text: String
 
 @onready var button: Button = %Button
 @onready var button_side: Panel = %ButtonSide
-@onready var shine: TextureRect = %Shine
 @onready var label = %Label
 
 func _ready() -> void:
 	label.text = name
-	shine.position.x = button.size.x + shine.size.x
-
-func show_colors() -> void:
-	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.parallel().tween_property(shine, "position:x", -shine.size.x, 0.5)
-	await tween.finished
-	tween.kill()
-
-func hide_colors() -> void:
-	tween.kill()
-	shine.position.x = button.size.x + shine.size.x
 
 func _on_button_mouse_entered() -> void:
-	show_colors()
+	button.modulate += Color(0.25,0.25,0.25,0.0)
 
 func _on_button_mouse_exited() -> void:
-	hide_colors()
+	button.modulate -= Color(0.25,0.25,0.25,0.0)
 
 func _on_button_button_down():
 	button.position.y += 4

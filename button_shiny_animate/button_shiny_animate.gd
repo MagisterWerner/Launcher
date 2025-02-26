@@ -3,7 +3,6 @@ extends Control
 
 @export var path: String
 
-var tween: Tween
 var output: Array
 var pid: int = -1
 var message: String
@@ -13,35 +12,19 @@ var button_width: int = 200
 
 @onready var button: Button = %Button
 @onready var button_side: Panel = %ButtonSide
-@onready var shine: TextureRect = %Shine
 @onready var label = %Label
 
 
 func _ready() -> void:
-	# Set the window mode to fullscreen
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	
 	set_deferred("button.size.x", button_width)
 	set_deferred("button_side.size.x", button_width)
 	label.text = name
-	
-	shine.position.x = button.size.x + shine.size.x
-
-func show_colors() -> void:
-	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.parallel().tween_property(shine, "position:x", -shine.size.x, 0.5)
-	await tween.finished
-	tween.kill()
-
-func hide_colors() -> void:
-	tween.kill()
-	shine.position.x = button.size.x + shine.size.x
 
 func _on_button_mouse_entered() -> void:
-	show_colors()
+	button.modulate += Color(0.25,0.25,0.25,0.0)
 
 func _on_button_mouse_exited() -> void:
-	hide_colors()
+	button.modulate -= Color(0.25,0.25,0.25,0.0)
 
 func _on_button_button_down():
 	button.position.y += 4
@@ -58,6 +41,8 @@ func _on_button_button_down():
 		#Apps for steam etc. can use this, but timers won't work as good:
 		steam = true
 		pid = OS.execute('C:\\Program Files (x86)\\Steam\\Steam.exe', [path], output, true)
+		await get_tree().create_timer(0.5).timeout  # Give it a moment to launch
+		OS.execute("powershell", ["-command", "(New-Object -ComObject WScript.Shell).AppActivate(" + str(pid) + ")"])
 	else:
 		#Execute the external executable file
 		steam = false
@@ -69,7 +54,7 @@ func _on_button_button_down():
 			OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('{F11}')"])
 			# Small delay to ensure F11 is processed
 			await get_tree().create_timer(1.0).timeout
-			OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('^h')"])
+			OS.execute("powershell", ["-command", "$wsh = New-Object -ComObject WScript.Shell; $wsh.SendKeys('h')"])
 			# Small delay to ensure F11 is processed
 			await get_tree().create_timer(0.1).timeout
 	if pid != -1:
